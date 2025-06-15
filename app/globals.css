@@ -1,26 +1,199 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Yellow and Purple theme */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --primary: 247 100% 83%; /* #BDA5FF */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --secondary: 60 100% 66%; /* #FCEC54 */
+    --secondary-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --muted: 0 0% 96.5%; /* #F6F6F6 */
+    --muted-foreground: 0 0% 43.1%; /* #6E6E6E */
+    --accent: 54 100% 88%; /* #FFFAC2 */
+    --accent-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --input: 0 0% 89.8%;
+    --ring: 247 100% 83%; /* #BDA5FF */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 10.2%; /* #1A1A1A */
+    --foreground: 0 0% 96.5%; /* #F6F6F6 */
+    --card: 0 0% 10.2%; /* #1A1A1A */
+    --card-foreground: 0 0% 96.5%; /* #F6F6F6 */
+    --popover: 0 0% 10.2%; /* #1A1A1A */
+    --popover-foreground: 0 0% 96.5%; /* #F6F6F6 */
+    --primary: 247 100% 83%; /* #BDA5FF */
+    --primary-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --secondary: 60 100% 66%; /* #FCEC54 */
+    --secondary-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 43.1%; /* #6E6E6E */
+    --accent: 54 100% 88%; /* #FFFAC2 */
+    --accent-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 247 100% 83%; /* #BDA5FF */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.grid-background {
+  background-image: linear-gradient(
+      to right,
+      rgba(189, 165, 255, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(189, 165, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.hero-gradient {
+  background: radial-gradient(
+      circle at top left,
+      rgba(189, 165, 255, 0.1),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(252, 236, 84, 0.1),
+      transparent 50%
+    );
+}
+
+/* Shuttle Gradient Effect */
+.shuttle-gradient {
+  background: linear-gradient(
+    135deg,
+    #f6f6f6 0%,
+    #ffffff 25%,
+    #bda5ff 50%,
+    #ffffff 75%,
+    #fcec54 100%
+  );
+  background-size: 400% 400%;
+  animation: shuttle-gradient-animation 15s ease infinite;
+}
+
+@keyframes shuttle-gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Frosted glass effect */
+.frosted-glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(189, 165, 255, 0.2);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(-6deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-6deg);
+  }
+}
+
+.feature-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(189, 165, 255, 0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px -15px rgba(189, 165, 255, 0.3);
+}
+
+.button-glow:hover {
+  box-shadow: 0 0 15px rgba(108, 77, 195, 0.4);
+}
+
+/* Modern typography styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(to right, #bda5ff, #6c4dc3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Modern effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px -15px rgba(189, 165, 255, 0.2);
+}
+
+/* Modern blob shapes */
+.blob-shape {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* Animated underline effect */
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.animated-underline:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
