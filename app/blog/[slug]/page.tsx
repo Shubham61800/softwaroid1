@@ -8,7 +8,13 @@ import { NotionRenderer } from "@notion-render/client";
 import hljsPlugin from "@notion-render/hljs-plugin";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function Page({ params }: PageProps) {
   const post = await fetchBySlug(params.slug);
   if (!post) {
     return <div>Post Not found</div>;
