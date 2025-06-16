@@ -3,7 +3,6 @@ import {
   Client,
   PageObjectResponse,
 } from "@notionhq/client";
-import { RequestCookies } from "next/dist/compiled/@edge-runtime/cookies";
 import React from "react";
 import "server-only";
 

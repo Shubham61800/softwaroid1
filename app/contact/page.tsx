@@ -72,8 +72,8 @@ const Contact = () => {
               Contact <span className="text-primary-500">Our Team</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8">
-              Ready to secure your business? Let's discuss how our cybersecurity
-              solutions can protect your digital assets.
+              Ready to secure your business? Let&apos;s discuss how our
+              cybersecurity solutions can protect your digital assets.
             </p>
           </div>
         </div>
@@ -90,8 +90,8 @@ const Contact = () => {
                     Send us a message
                   </CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you as soon as
-                    possible.
+                    Fill out the form below and we&apos;ll get back to you as
+                    soon as possible.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="rounded-md">

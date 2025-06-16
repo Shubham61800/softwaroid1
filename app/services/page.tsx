@@ -1,14 +1,5 @@
 "use client";
-import {
-  ArrowRight,
-  Shield,
-  Lock,
-  Cloud,
-  Network,
-  Database,
-  Search,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Shield, Lock, Cloud, Network, Database, Search } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {
@@ -131,7 +122,8 @@ const Services = () => {
             </h1>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               Advanced cybersecurity solutions designed to protect your business
-              against evolving digital threats in today's complex landscape.
+              against evolving digital threats in today&apos;s complex
+              landscape.
             </p>
           </div>
         </div>
@@ -277,7 +269,7 @@ const Services = () => {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-6 italic">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
                 <div className="flex items-center">
                   <div className="w-10 h-10 rounded-full bg-gray-200 mr-3 flex items-center justify-center font-semibold">

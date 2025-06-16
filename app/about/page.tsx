@@ -1,13 +1,5 @@
 "use client";
-import {
-  Shield,
-  Users,
-  Award,
-  Target,
-  CheckCircle,
-  ArrowRight,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Shield, Users, Award, Target, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -90,7 +82,7 @@ const About = () => {
               About <span className="text-gradient-black">Softwaroid</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              We're a team of cybersecurity experts dedicated to protecting
+              We&apos;re a team of cybersecurity experts dedicated to protecting
               businesses from evolving digital threats with innovative, reliable
               solutions.
             </p>
@@ -141,8 +133,8 @@ const About = () => {
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   What started as a small team of passionate security experts
                   has grown into a trusted partner for over 500 businesses
-                  worldwide. We've prevented countless cyber attacks and helped
-                  organizations build robust security frameworks.
+                  worldwide. We&apos;ve prevented countless cyber attacks and
+                  helped organizations build robust security frameworks.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
                   Today, we continue to innovate and adapt to the ever-changing
