@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
@@ -7,22 +9,21 @@ import { NotionRenderer } from "@notion-render/client";
 import hljsPlugin from "@notion-render/hljs-plugin";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 
-interface PageProps {
+type PageProps = {
   params: {
     slug: string;
   };
-}
+};
 
 export default async function Page({ params }: PageProps) {
   const post = await fetchBySlug(params.slug);
   if (!post) {
-    return <div>Post Not found</div>;
+    return <div>Post Not Found</div>;
   }
+
   const blocks = await fetchPageBlocks(post.id);
 
-  const renderer = new NotionRenderer({
-    client: notion,
-  });
+  const renderer = new NotionRenderer({ client: notion });
   renderer.use(hljsPlugin({}));
   renderer.use(bookmarkPlugin(undefined));
 
@@ -39,16 +40,7 @@ export default async function Page({ params }: PageProps) {
           <ArrowLeft className="mr-2 w-4 h-4 transition-transform group-hover:-translate-x-1" />
           Back to Blog
         </Link>
-        {!post ? (
-          <div className="text-center text-muted-foreground">
-            Blog post not found.
-          </div>
-        ) : (
-          <div
-            className="prose"
-            dangerouslySetInnerHTML={{ __html: html }}
-          ></div>
-        )}
+        <div className="prose" dangerouslySetInnerHTML={{ __html: html }} />
       </section>
       <Footer />
     </div>
